@@ -1,0 +1,10 @@
+<h1><%= @tag.type %> (tag)</h1>
+
+
+<h3>Associated Merchant's:</h3>
+
+<ul>
+  <% @tag.merchants.each do |merchant| %>
+  <li><%= merchant.name %></li>
+  <% end %>
+</ul>
