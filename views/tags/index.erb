@@ -5,10 +5,13 @@
 <table>
   <tr>
     <th>Type</th>
+    <th></th>
   </tr>
   <% for tag in @tags %>
   <tr>
     <td><a href="/tags/<%= tag.id %>"><%= tag.type %></a></td>
+    <td><form action="/tags/<%= tag.id %>/delete" method="POST">
+    <input class="btn btn--danger" type="submit" value="delete" /></form></td>
   </tr>
   <% end %>
 </table>

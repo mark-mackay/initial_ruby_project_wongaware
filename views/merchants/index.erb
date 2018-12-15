@@ -10,6 +10,8 @@
   <% for merchant in @merchants %>
   <tr>
     <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
+    <td><form action="/merchants/<%= merchant.id %>/delete" method="POST">
+    <input class="btn btn--danger" type="submit" value="delete" /></form></td>
   </tr>
   <% end %>
 </table>
