@@ -1,30 +1,29 @@
 <h1>New transaction</h1>
 
 <form action="/transactions" method="post">
-  <label>
-  Select a merchant:
-    <select name="merchant_id">
+  <table>
+  <tr>
+  <td>Select a merchant:</td>
+  <td><select name="merchant_id">
       <% for merchant in @merchants %>
       <option value="<%= merchant.id %>"><%= merchant.name %></option>
       <% end %>
-    </select>
-  </label>
+    </select></td>
 
-  <label>
-    Select a tag:
-    <select name="tag_id">
+  <td><label>Select a tag:</label></td>
+    <td><select name="tag_id">
       <% for tag in @tags %>
       <option value="<%= tag.id %>"><%= tag.type %></option>
       <% end %>
-    </select>
-  </label>
-  <div>
-  <label for="amount">Enter Amount:</label>
-    <input type="number" name="amount" id="amount"/>
-  </div>
-  <div>
-  <label for="transaction_time">Enter Time(hh:mm):</label>
-    <input type="text" name="transaction_time" id="transaction_time"/>
-  </div>
-  <input class="btn btn--action" type='submit' value="Submit transaction!">
+    </select></td>
+  </tr>
+  <tr>
+    <td><label for="amount">Enter Amount:</label>
+        <input type="number" name="amount" id="amount"/></td>
+        <td><label for="transaction_time">Enter Time(hh:mm):</label>
+        <input type="text" name="transaction_time" id="transaction_time"/>
+      </td>
+      <td><input class="btn btn--action" type='submit' value="Submit transaction!"><td>
+    </tr>
+  </table>
 </form>
