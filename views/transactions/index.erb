@@ -7,7 +7,10 @@
 <ul>
   <% for transaction in @transactions %>
   <li>
-  <p><%= transaction.merchant.name %> <%= transaction.tag.type %> </p>
+  <p>Merchant: <%= transaction.merchant.name %></p>
+  <p>Transaction Type: <%= transaction.tag.type %> </p>
+  <p>Transaction Amount: <%=transaction.amount%></p>
+  <p>Transaction Time: <%=transaction.transaction_time%></p>
     <p>
       <form action="/transactions/<%= transaction.id %>/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />

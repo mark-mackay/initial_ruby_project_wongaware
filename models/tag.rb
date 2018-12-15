@@ -25,12 +25,12 @@ class Tag
     @id = results.first()['id'].to_i
   end
 
-  # def victims
-  #   sql = "SELECT v.* FROM victims v INNER JOIN bitings b ON b.victim_id = v.id WHERE b.zombie_id = $1;"
-  #   values = [@id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map { |victim| Victim.new(victim) }
-  # end
+  def merchants()
+    sql = "SELECT m.* FROM merchants m INNER JOIN transactions t ON t.merchant_id = m.id WHERE t.tag_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |merchant| Merchant.new(merchant) }
+  end
 
   def self.all()
     sql = "SELECT * FROM tags"
