@@ -5,11 +5,11 @@
 </p>
 
 <ul>
-  <% for biting in @bitings %>
+  <% for transaction in @transactions %>
   <li>
-  <p><%= biting.zombie.name %> <%= @actions.sample %> <%= biting.victim.name %> </p>
+  <p><%= transaction.merchant.name %> <%= transaction.tag.type %> </p>
     <p>
-      <form action="/bitings/<%= biting.id %>/delete" method="POST">
+      <form action="/transactions/<%= transaction.id %>/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />
       </form>
     </p>

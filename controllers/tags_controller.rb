@@ -5,7 +5,7 @@ also_reload( '../models/*' )
 
 get '/tags' do
   @tags = Tag.all()
-  erb ( :"victims/index" )
+  erb ( :"tags/index" )
 end
 
 get '/tags/:id' do
