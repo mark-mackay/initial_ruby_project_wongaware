@@ -1,38 +1,37 @@
-<h2>Edit Transaction</h2>
-<form method="POST" action="/students/<%= @student.id %>">
-  <div class="form-wrapper">
+<h1>New transaction</h1>
 
-    <div class="form-el">
-      <label for="first_name">First Name:</label>
-      <input type="text" name="first_name" id="first_name" value="<%= @student.first_name %>"/>
-    </div>
-
-    <div class="form-el">
-      <label for="last_name">Last Name:</label>
-      <input type="text" name="last_name" id="last_name" value="<%= @student.last_name%>"/>
-    </div>
-
-    <div class="form-el">
-      <label for="house_select">Select House:</label>
-      <select name="house_id" id="house_select" selected="<%= @student.house_id  %>">
-        <% @houses.each do |house| %>
-          <% if house.id == @student.house_id %>
-            <option value=<%= house.id %> selected><%= house.name.capitalize %></option>
+<form action="/transactions" method="post">
+  <table>
+  <tr>
+  <td>Select a merchant:</td>
+  <td><select name="merchant_id">
+      <% for merchant in @merchants %>
+      <% if merchant.id == @transaction.merchant_id %>
+            <option value=<%= merchant.id %> selected><%= merchant.name %></option>
           <% else %>
-            <option value=<%= house.id %>><%= house.name.capitalize %></option>
+            <option value="<%= merchant.id %>"><%= merchant.name %></option>
           <% end %>
-        <% end %>
-      </select>
-    </div>
+      <% end %>
+    </select></td>
 
-    <div class="form-el">
-      <label for="age">Age:</label>
-      <input type="number" name="age" id="age" value="<%= @student.age %>"/>
-    </div>
-
-    <div class="form-el">
-      <input type="submit" value="Enrol Student"/>
-    </div>
-
-  </div>
+  <td><label>Select a tag:</label></td>
+    <td><select name="tag_id">
+      <% for tag in @tags %>
+      <% if tag.id == @transaction.tag_id %>
+            <option value=<%= tag.id %> selected><%= tag.type %></option>
+          <% else %>
+            <option value="<%= tag.id %>"><%= tag.type %></option>
+          <% end %>
+      <% end %>
+    </select></td>
+  </tr>
+  <tr>
+    <td><label for="amount">Enter Amount:</label>
+        <input type="number" name="amount" id="amount" value="<%= @transaction.amount %>"/></td>
+        <td><label for="transaction_time">Enter Time(hh:mm):</label>
+        <input type="text" name="transaction_time" id="transaction_time" value="<%= @transaction.transaction_time %>"/>
+      </td>
+      <td><input class="btn btn--action" type='submit' value="Amend transaction!"><td>
+    </tr>
+  </table>
 </form>

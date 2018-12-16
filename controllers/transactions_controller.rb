@@ -18,6 +18,19 @@ get '/transactions/new' do
   erb(:"transactions/new")
 end
 
+get '/transactions/:id/edit' do
+  @tags = Tag.all
+  @merchants = Merchant.all
+  @transaction = Transaction.find(params['id'])
+  erb(:"transactions/edit")
+end
+
+post '/transactions/:id' do
+  transaction = Transaction.new(params)
+  transaction.update
+  redirect to "/transactions/#{params['id']}"
+end
+
 post '/transactions' do
   transaction = Transaction.new(params)
   transaction.save

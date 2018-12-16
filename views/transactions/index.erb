@@ -15,6 +15,8 @@
     <td><%=transaction.transaction_time%></td>
     <td><form action="/transactions/<%= transaction.id %>/delete" method="POST">
     <input class="btn btn--danger" type="submit" value="delete" /></form></td>
+    <td><form action="/transactions/<%= transaction.id %>/edit" method="GET">
+    <input class="btn btn--danger" type="submit" value="edit" /></form></td>
   </tr>
   <% end %>
 </table>
