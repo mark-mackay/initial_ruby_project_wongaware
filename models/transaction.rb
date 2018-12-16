@@ -70,6 +70,11 @@ class Transaction
     return Tag.new( results.first )
   end
 
+  def self.total()
+    transactions = Transaction.all()
+    return transactions.reduce(0) {|sum, transaction | sum + transaction.amount }
+  end
+
   def merchant()
     sql = "SELECT * FROM merchants
     WHERE id = $1"
