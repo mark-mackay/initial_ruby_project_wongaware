@@ -45,6 +45,19 @@ class Tag
     results = SqlRunner.run( sql, values )
     return Tag.new( results.first )
   end
+  def update()
+    sql = "UPDATE tags
+    SET
+    (
+      type
+    ) =
+    (
+      $1
+    )
+    WHERE id = $2"
+    values = [@type, @id]
+    SqlRunner.run(sql, values)
+  end
 
   def self.delete_all
     sql = "DELETE FROM tags"
