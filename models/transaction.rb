@@ -30,7 +30,7 @@ class Transaction
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
-  
+
   def update()
     sql = "UPDATE transactions
     SET
@@ -52,6 +52,14 @@ class Transaction
     sql = "SELECT * FROM transactions"
     results = SqlRunner.run( sql )
     return results.map { |transaction| Transaction.new( transaction ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM transactions
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Transaction.new( results.first )
   end
 
   def tag()
