@@ -8,8 +8,12 @@ also_reload( '../models/*' )
 
 get '/transactions' do
   @transactions = Transaction.all
-  # @actions = Action.all
   erb ( :"transactions/index" )
+end
+
+get '/transactions/:id' do
+  @transactions = Transaction.find(params['id'].to_i)
+  erb( :"transactions/show" )
 end
 
 get '/transactions/new' do
@@ -18,17 +22,17 @@ get '/transactions/new' do
   erb(:"transactions/new")
 end
 
+post '/transactions/:id' do
+  transaction = Transaction.new(params)
+  transaction.update
+  redirect to "/transactions"
+end
+
 get '/transactions/:id/edit' do
   @tags = Tag.all
   @merchants = Merchant.all
   @transaction = Transaction.find(params['id'])
   erb(:"transactions/edit")
-end
-
-post '/transactions/:id' do
-  transaction = Transaction.new(params)
-  transaction.update
-  redirect to "/transactions/#{params['id']}"
 end
 
 post '/transactions' do

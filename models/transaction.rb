@@ -75,6 +75,20 @@ class Transaction
     return transactions.reduce(0) {|sum, transaction | sum + transaction.amount }
   end
 
+  def self.transactions_by_tag(id)
+    sql = "SELECT t.* FROM transactions t WHERE t.tag_id = $1;"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |transaction| Transaction.new(transaction) }
+  end
+
+  def self.transactions_by_merchant(id)
+    sql = "SELECT t.* FROM transactions t WHERE t.merchant_id = $1;"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |transaction| Transaction.new(transaction) }
+  end
+
   def merchant()
     sql = "SELECT * FROM merchants
     WHERE id = $1"

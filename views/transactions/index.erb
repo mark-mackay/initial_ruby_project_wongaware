@@ -7,11 +7,12 @@
   <tr>
   <th>Merchant</th><th>Transaction Type</th><th>Transaction Amount</th><th>Transaction Time</th>
   </tr>
+  <%@transactions = @transactions.sort_by {|transaction| transaction.amount} %>
   <% for transaction in @transactions %>
   <tr>
     <td><%= transaction.merchant.name %></td>
     <td><%= transaction.tag.type %></td>
-    <td>£<%=transaction.amount%></td>
+    <td>£<%='%.2f' % transaction.amount%></td>
     <td><%=transaction.transaction_time%></td>
     <td><form action="/transactions/<%= transaction.id %>/delete" method="POST">
     <input class="btn btn--danger" type="submit" value="delete" /></form></td>
@@ -19,5 +20,5 @@
     <input class="btn btn--danger" type="submit" value="edit" /></form></td>
   </tr>
   <% end %>
-  <tfoot><td></td><td>Total</td><td>£<%=Transaction.total()%></td></tfoot>
+  <tfoot><td></td><td>Total</td><td>£<%= '%.2f' % Transaction.total%></td></tfoot>
 </table>

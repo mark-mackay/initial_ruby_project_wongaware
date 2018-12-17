@@ -9,7 +9,7 @@
   </tr>
   <% for tag in @tags %>
   <tr>
-    <td><a href="/tags/<%= tag.id %>"><%= tag.type %></a></td>
+    <td><a href="/tags/transactions/<%= tag.id %>"><%= tag.type %></a></td>
     <td><form action="/tags/<%= tag.id %>/delete" method="POST">
     <input class="btn btn--danger" type="submit" value="delete" /></form></td>
     <td><form action="/tags/<%= tag.id %>/edit" method="GET">

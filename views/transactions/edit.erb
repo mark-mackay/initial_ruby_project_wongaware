@@ -1,6 +1,6 @@
-<h1>New transaction</h1>
+<h1>Amend transaction</h1>
 
-<form action="/transactions" method="post">
+<form action="/transactions/<%=@transaction.id%>" method="post">
   <table>
   <tr>
   <td>Select a merchant:</td>
@@ -29,7 +29,7 @@
     <td><label for="amount">Enter Amount:</label>
         <input type="number" name="amount" id="amount" value="<%= @transaction.amount %>"/></td>
         <td><label for="transaction_time">Enter Time(hh:mm):</label>
-        <input type="text" name="transaction_time" id="transaction_time" value="<%= @transaction.transaction_time %>"/>
+        <input type="time" name="transaction_time" id="transaction_time" value="<%= @transaction.transaction_time %>"/>
       </td>
       <td><input class="btn btn--action" type='submit' value="Amend transaction!"><td>
     </tr>

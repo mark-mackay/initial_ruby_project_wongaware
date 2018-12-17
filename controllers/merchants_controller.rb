@@ -8,6 +8,12 @@ get '/merchants' do
   erb ( :"merchants/index" )
 end
 
+get '/merchants/transactions/:id' do
+  @transactions = Transaction.transactions_by_merchant(params['id'].to_i)
+  @transaction_type = "merchants"
+  erb ( :"transactions/show")
+end
+
 get '/merchants/new' do
   erb(:"merchants/new")
 end

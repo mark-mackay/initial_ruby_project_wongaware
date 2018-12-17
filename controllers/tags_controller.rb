@@ -8,6 +8,12 @@ get '/tags' do
   erb ( :"tags/index" )
 end
 
+get '/tags/transactions/:id' do
+  @transactions = Transaction.transactions_by_tag(params['id'].to_i)
+  @transaction_type = "tags"
+  erb ( :"transactions/show")
+end
+
 get '/tags/new' do
   erb(:"tags/new")
 end

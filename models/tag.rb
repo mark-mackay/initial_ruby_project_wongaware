@@ -32,6 +32,13 @@ class Tag
     return results.map { |merchant| Merchant.new(merchant) }
   end
 
+  def self.transactions(id)
+    sql = "SELECT t.* FROM transactions t WHERE t.tag_id = $1;"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |transaction| Transaction.new(transaction) }
+  end
+
   def self.all()
     sql = "SELECT * FROM tags"
     results = SqlRunner.run( sql )
