@@ -5,7 +5,7 @@
 </p>
 <table>
   <tr>
-  <th>Merchant</th><th>Transaction Type</th><th>Transaction Amount</th><th>Transaction Time</th>
+  <th>Merchant</th><th>Type</th><th>Amount</th><th>Date</th><th>Time</th>
   </tr>
   <%@transactions = @transactions.sort_by {|transaction| transaction.amount} %>
   <% for transaction in @transactions %>
@@ -13,6 +13,7 @@
     <td><%= transaction.merchant.name %></td>
     <td><%= transaction.tag.type %></td>
     <td>£<%='%.2f' % transaction.amount%></td>
+    <td><%=transaction.transaction_date.split('-').reverse.join('-')%></td>
     <td><%=transaction.transaction_time%></td>
     <td><form action="/transactions/<%= transaction.id %>/delete" method="POST">
     <input class="btn btn--danger" type="submit" value="delete" /></form></td>

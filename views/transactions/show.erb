@@ -1,7 +1,7 @@
 <h1>Transactions by <%=@transaction_type%></h1>
 <table>
   <tr><%sum = 0%>
-  <th>Merchant</th><th>Transaction Type</th><th>Transaction Amount</th><th>Transaction Time</th>
+  <th>Merchant</th><th>Type</th><th>Amount</th><th>Date</th><th>Time</th>
   </tr>
   <%@transactions = @transactions.sort_by {|transaction| transaction.amount} %>
   <% for transaction in @transactions %>
@@ -10,6 +10,8 @@
     <td><%= transaction.tag.type %></td>
     <td>£<%='%.2f' % transaction.amount%></td>
     <%sum += transaction.amount%>
+  <!--   Reverse the date format, splits the date into an array then reverses it then joins it -->
+    <td><%=transaction.transaction_date.split('-').reverse.join('-')%></td>
     <td><%=transaction.transaction_time%></td>
   </tr>
   <% end %>

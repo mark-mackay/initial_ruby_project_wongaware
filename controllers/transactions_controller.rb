@@ -6,6 +6,12 @@ require_relative( '../models/tag.rb' )
 require_relative( '../models/merchant.rb' )
 also_reload( '../models/*' )
 
+get '/transactions/new' do
+  @tags = Tag.all
+  @merchants = Merchant.all
+  erb(:"transactions/new")
+end
+
 get '/transactions' do
   @transactions = Transaction.all
   erb ( :"transactions/index" )
@@ -16,11 +22,6 @@ get '/transactions/:id' do
   erb( :"transactions/show" )
 end
 
-get '/transactions/new' do
-  @tags = Tag.all
-  @merchants = Merchant.all
-  erb(:"transactions/new")
-end
 
 post '/transactions/:id' do
   transaction = Transaction.new(params)
