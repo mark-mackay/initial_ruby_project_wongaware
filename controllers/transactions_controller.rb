@@ -17,6 +17,19 @@ get '/transactions' do
   erb ( :"transactions/index" )
 end
 
+get '/transactions/srtdate' do
+  # Transactions sorted by date
+  @transactions = Transaction.all.sort_by {|transaction| transaction.date_time}
+  erb ( :"transactions/index" )
+end
+
+get '/transactions/srtamount' do
+  # Transactions sorted by amount
+  @transactions = Transaction.all.sort_by {|transaction| transaction.amount}
+  @transactions = @transactions.reverse
+  erb ( :"transactions/index" )
+end
+
 get '/transactions/:id' do
   @transactions = Transaction.find(params['id'].to_i)
   erb( :"transactions/show" )

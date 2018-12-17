@@ -5,9 +5,8 @@
 </p>
 <table>
   <tr>
-  <th>Merchant</th><th>Type</th><th>Amount</th><th>Date</th><th>Time</th>
+  <th>Merchant</th><th>Type</th><th><a href="/transactions/srtamount">Amount</a></th><th><a href="/transactions/srtdate">Date</a></th><th>Time</th>
   </tr>
-  <%@transactions = @transactions.sort_by {|transaction| transaction.amount} %>
   <% for transaction in @transactions %>
   <tr>
     <td><%= transaction.merchant.name %></td>
