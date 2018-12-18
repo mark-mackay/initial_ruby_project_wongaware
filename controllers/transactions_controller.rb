@@ -32,8 +32,8 @@ get '/transactions/srtamount' do
   erb ( :"transactions/index" )
 end
 
-get 'transactions/bymonth' do
-  @transactions = Transaction.transactions_by_month(params['yearmonth'])
+get '/transactions/bymonth' do
+  @transactions = Transaction.bymonth(params['yearmonth'].to_s)
   @transaction_type = "month & year"
   erb(:"transactions/show")
 end

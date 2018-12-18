@@ -86,8 +86,8 @@ class Transaction
     return results.map { |transaction| Transaction.new(transaction) }
   end
 
-  def self.transactions_by_month(yearmonth)
-     result = Transaction.all.select { | transaction | transaction.transaction_date.start_with?(yearmonth)}
+  def self.bymonth(yearmonth)
+     return result = Transaction.all.select { | transaction | transaction.transaction_date.start_with?(yearmonth)}
   end
 
   def self.transactions_by_merchant(id)
