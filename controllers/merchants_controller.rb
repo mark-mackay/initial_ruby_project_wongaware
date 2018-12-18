@@ -41,6 +41,11 @@ post '/merchants' do
 end
 
 post '/merchants/:id/delete' do
-  Merchant.delete(params[:id])
-  redirect to("/merchants")
+  if Transaction.transactions_by_merchant(params[:id]) == nil
+      Merchant.delete(params[:id])
+      redirect to("/merchants")
+  else
+    @message = "Cannot delete merchant, it has associated transactions"
+    redirect to("/merchants/transactions/#{params[:id]}")
+  end
 end

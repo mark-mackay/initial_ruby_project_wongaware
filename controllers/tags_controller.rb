@@ -41,6 +41,11 @@ post '/tags' do
 end
 
 post '/tags/:id/delete' do
-  Tag.delete(params[:id])
-  redirect to("/tags")
+  if Transaction.transactions_by_tag(params[:id]) == nil
+    Tag.delete(params[:id])
+    redirect to("/tags")
+  else
+    @message = "Cannot delete tag, it has associated transactions"
+    redirect to("/tags/transactions/#{params[:id]}")
+  end
 end
