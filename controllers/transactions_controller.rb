@@ -31,6 +31,7 @@ get '/transactions/srtamount' do
   erb ( :"transactions/index" )
 end
 
+
 get '/transactions/:id' do
   @transactions = Transaction.find(params['id'].to_i)
   erb( :"transactions/show" )
