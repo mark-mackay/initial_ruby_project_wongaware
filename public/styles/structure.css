@@ -67,7 +67,7 @@ h1, .warning {
 }
 
 a, a:link, a:visited {
-  color: #a2937e;
+  color: #FFFAFA;
   text-decoration: none;
 }
 
@@ -82,6 +82,8 @@ nav {
 }
 
 nav ul li {
+  font-family: 'Exo 2 Bold';
+
   margin-bottom: 15px;
   text-transform: uppercase;
 }
