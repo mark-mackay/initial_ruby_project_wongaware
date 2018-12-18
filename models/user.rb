@@ -47,6 +47,11 @@ class User
     return results.map { |user| User.new( user ) }
   end
 
+  def self.budget_warning
+     user = User.all.first
+     return user.budget < Transaction.total + 50.0
+  end
+
   def self.find( id )
     sql = "SELECT * FROM users
     WHERE id = $1"

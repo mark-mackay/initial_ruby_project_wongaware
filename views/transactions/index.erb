@@ -22,3 +22,6 @@
   <% end %>
   <tfoot><td></td><td>Total</td><td>£<%= '%.2f' % Transaction.total%></td></tfoot>
 </table>
+<form action="/transactions/bymonth" method="get">
+<input type="month" name="monthyear" id="monthyear" value="2018-05"/>
+<input class="btn btn--danger" type="submit" value="edit" /></form>
