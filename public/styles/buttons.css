@@ -8,11 +8,11 @@
 }
 
 .btn--danger {
-  background-color: darkred;
+  background-color: #0080ff;
 }
 
 .btn--danger:hover {
-  background-color: #730000;
+  background-color: #0000ff;
 }
 
 .btn--action:hover {
@@ -20,7 +20,7 @@
 }
 
 .btn--action {
-  background-color: darkolivegreen;
+  background-color: ##8000ff;
 }
 
 .btn--wrapper {

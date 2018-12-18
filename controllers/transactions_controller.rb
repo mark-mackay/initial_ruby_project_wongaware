@@ -26,6 +26,7 @@ end
 get '/transactions/srtamount' do
   # Transactions sorted by amount
   @transactions = Transaction.all.sort_by {|transaction| transaction.amount}
+  # Show largest 1st
   @transactions = @transactions.reverse
   erb ( :"transactions/index" )
 end
