@@ -2,10 +2,10 @@
 
 <form action="/users/<%=@user.id%>" method="post">
   <table>
-  <tr><td>Update user:</td><td><%=@user.name%></tr>
+  <tr><td>Update user:<input align="right" type="text" name="name" id="name" value="<%= @user.name %>"/></td>
   <tr>
     <td><label for="amount">Enter Amount:</label>
-        <input type="number" step="0.01" name="amount" id="amount" value="<%= @user.budget %>"/></td>
+        <input type="number" step="0.01" name="budget" id="budget" value="<%= @user.budget %>"/></td>
       <td><input class="btn btn--action" type='submit' value="Amend budget!"><td>
     </tr>
   </table>

@@ -10,7 +10,7 @@ end
 
 
 get '/users/edit' do
-  @user = User.find(params['id'])
+  @user = User.all.first
   erb(:"users/edit")
 end
 
