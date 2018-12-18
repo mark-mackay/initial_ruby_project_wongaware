@@ -4,6 +4,7 @@ require( 'pry-byebug' )
 require_relative( '../models/transaction.rb' )
 require_relative( '../models/tag.rb' )
 require_relative( '../models/merchant.rb' )
+require_relative( '../models/user.rb' )
 also_reload( '../models/*' )
 
 get '/transactions/new' do

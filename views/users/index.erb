@@ -1,0 +1,12 @@
+<h1>User Details</h1>
+<table>
+  <tr>
+  <th>User</th><th>Budget</th><th>
+  </tr>
+  <tr>
+    <td><%= @user.name %></td>
+    <td>£<%= '%.2f' % @user.budget %></td>
+    <td><p class="btn--wrapper"><a class="btn btn--action" href="/users/edit">Edit budget!</a></p></td>
+  </tr>
+  <tfoot><td></td><td>Total Transactions</td><td>£<%= '%.2f' % Transaction.total%></td></tfoot>
+</table>

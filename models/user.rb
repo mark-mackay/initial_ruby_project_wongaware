@@ -26,12 +26,20 @@ class User
     @id = results.first()['id'].to_i
   end
 
-  # def zombies()
-  #   sql = "SELECT z.* FROM zombies z INNER JOIN bitings b ON b.zombie_id = z.id WHERE b.victim_id = $1;"
-  #   values = [@id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map { |zombie| Zombie.new(zombie) }
-  # end
+  def update()
+    sql = "UPDATE users
+    SET
+    (
+      name,
+      budget
+    ) =
+    (
+      $1, $2
+    )
+    WHERE id = $3"
+    values = [@name, @budget, @id]
+    SqlRunner.run(sql, values)
+  end
 
   def self.all()
     sql = "SELECT * FROM users"
