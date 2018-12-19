@@ -8,10 +8,20 @@
     <th></th>
   </tr>
   <% for tag in @tags %>
+
+  <% if tag.merchants().length > 0 %>
+      <%  action = "/tags/transactions/#{tag.id}"
+        method = "GET"
+        value = "Associated Transactions"
+      else
+        action = "/tags/#{tag.id}/delete"
+        method = "POST"
+        value = "delete"
+      end %>
   <tr>
     <td><a href="/tags/transactions/<%= tag.id %>"><%= tag.type %></a></td>
-    <td><form action="/tags/<%= tag.id %>/delete" method="POST">
-    <input class="btn btn--danger" type="submit" value="delete" /></form></td>
+    <td><form action="<%=action%>" method="<%=method%>">
+    <input class="btn btn--danger" type="submit" value="<%=value%>" /></form></td>
     <td><form action="/tags/<%= tag.id %>/edit" method="GET">
     <input class="btn btn--danger" type="submit" value="edit" /></form></td>
   </tr>
