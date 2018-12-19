@@ -23,9 +23,9 @@
 </table>
   <br><br>
   <hr>
-Total</td><td>  £<%= '%.2f' % Transaction.total%>
+Total   £<%= '%.2f' % Transaction.total%>
   <br><br>
   <hr>
 <form action="/transactions/bymonth" method="get">Which month would you like transactions for?
-<input type="month" name="monthyear" id="monthyear" value="2018-05"/>
+<input type="month" name="yearmonth" id="yearmonth" value="2018-03"/>
 <input class="btn btn--danger" type="submit" value="Submit" /></form>
