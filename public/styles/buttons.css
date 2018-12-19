@@ -4,7 +4,7 @@
   padding: 8px 12px;
   color: papayawhip;
   cursor:pointer;
-  font-family: 'Special Elite', cursive;
+  font-family: 'Exo 2';
 }
 
 .btn--danger {
@@ -20,7 +20,7 @@
 }
 
 .btn--action {
-  background-color: #8110ff;
+  background-color: #8055ff;
 }
 
 .btn--wrapper {
